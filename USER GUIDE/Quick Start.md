@@ -7,7 +7,7 @@ categories: 文档翻译
 This quick start guide is a detailed instruction of setting up RocketMQ messaging system on your local machine to send and receive messages.
 
 ## 快速开始
-快速开始指引由详细的命令组成，告诉你如何在本地机器上配置RocketMQ消息系统并且收发消息。
+快速开始指引由详细的命令组成，告诉你如何在本机配置RocketMQ消息投递系统并且收发消息。
 
 ## Prerequisite
 The following softwares are assumed installed:
@@ -17,7 +17,7 @@ The following softwares are assumed installed:
 4. Git
 
 ## 前期必要的准备
-以下软件是必须安装：
+以下软件必须安装：
 1. 64位操作系统，linux/Unit/Mac（推荐）；
 2. 64位JDK，1.8+；
 3. Maven 3.2.x
@@ -80,7 +80,7 @@ Before sending/receiving messages, we need to tell clients the location of name 
 ```
 
 ## 发送和接收消息
-在发送或接收消息之前，我们需要通知客户端name servers的位置。RocketMQ提供多种途径实现。为简单起见，我们现在展示环境变量NAMESRV_ADDR的用法
+在发送或接收消息之前，我们需要通知客户端name servers的位置。RocketMQ提供多种实现方式。为简单起见，我们现在展示环境变量NAMESRV_ADDR的用法
 ```
  > export NAMESRV_ADDR=localhost:9876
  > sh bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
@@ -101,7 +101,7 @@ The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 ```
 
-## 关闭所有服务
+## 关闭所有服务器
 ```
 > sh bin/mqshutdown broker
 The mqbroker(36695) is running...

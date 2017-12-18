@@ -11,7 +11,7 @@ Use RocketMQ to send messages in three ways: reliable synchronous, reliable asyn
 
 This page exemplifies these three message-sending ways. Checkout the notes along with the example to figure out which way to use for your specific use case.
 
-本页文档展现了这3种消息发送方式。检出这些带有注释的示例代码，可以让你知道每一个用例对应哪一种发送方式。
+本页文档展示这3种消息发送方式。检出这些带有注释的示例代码，可以让你知道每一个用例对应哪一种发送方式。
 
 ### Reliable synchronous transmission
 Application: Reliable synchronous transmission is used in extensive scenes, such as important notification messages, SMS notification, SMS marketing system, etc..
@@ -41,7 +41,7 @@ public class SyncProducer {
 ```
 
 ### 可靠同步发送
-应用：可靠同步发送在众多场景中被使用，例如重要通知消息、短信通知、短信营销系统，等等。
+应用：可靠同步发送在众多场景中被使用，例如重要的通知消息、短信通知、短信营销系统，等等。
 ```
 public class SyncProducer {
     public static void main(String[] args) throws Exception {
