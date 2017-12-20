@@ -7,7 +7,7 @@ categories: 文档翻译
 At early stages, we constructed our distributed messaging middleware based on ActiveMQ 5.x(prior to 5.3). Our multinational business uses it for asynchronous communication, search, social network activity stream, data pipeline, even in its trade processes. As our trade business throughput rises, pressure originating from our messaging cluster also becomes urgent.
 
 ## 动机
-在早期阶段，我们在ActiveMQ 5.x(早于5.3)的基础上构建我们的分布式消息中间件。我们的跨国业务使用它来实现异步通信、检索、社交网络活动流、数据管道，甚至在交易过程中也在使用。随着我们的交易业务量增加，来自消息集群的压力也变得非常与日俱增，亟需解决。
+在早期阶段，我们在ActiveMQ 5.x(早于5.3)的基础上构建我们的分布式消息中间件。我们的跨国业务使用它来实现异步通信、检索、社交网络活动流、数据管道，甚至在交易过程中也在使用。随着我们的交易业务量增加，来自消息集群的压力与日俱增，亟需解决。
 
 ## Why RocketMQ ?
 Based on our research, with increased queues and virtual topics in use, ActiveMQ IO module reaches a bottleneck. We tried our best to solve this problem through throttling, circuit breaker or degradation, but it did not work well. So we begin to focus on the popular messaging solution Kafka at that time. Unfortunately, Kafka can not meet our requirements especially in terms of low latency and high reliability, see here for details.
