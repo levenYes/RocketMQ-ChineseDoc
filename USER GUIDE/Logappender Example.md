@@ -105,7 +105,7 @@ When using logback,an asyncAppender also needed.
 ```
 
 logback
-使用logback，异步插件也是必需的。
+使用logback，异步插件也是必需的。  
 ```
 <appender name="mqAppender1" class="org.apache.rocketmq.logappender.logback.RocketmqLogbackAppender">
     <tag>yourTag</tag>
