@@ -117,3 +117,43 @@ Solution: Fastjson version has to be upgraded to rocketmq client dependent versi
 2. 如果在广播模式，消费者在开始加载JSON文件时失败，要怎么办？
 原因：Fastjson的版本太低，以至于无法允许广播消费者加载offsets.json文件，导致该消费者启动失败。损坏的fastjson文件也会导致同样的问题。
 解决方法：Fastjson的版本要升级到rocketmq客户端依赖版本，以确保本地offsets.json文件可以被正常加载。默认条件下offsets.json文件存放位置是/home/{user}/.rocketmq_offsets。或者检查一下fastjson是否完整。
+
+3. What is the impact of a broker crash?
+Master crashes
+Messages can no longer be sent to this broker set, but if you have another broker set available, messages can still be sent given the topic is present. Messages can still be consumed from slaves.
+
+3. broker崩溃有什么影响？
+Master崩溃
+如果你有另外一个broker集合可用，那么消息就可以不再发送到这个已经崩溃的boker集合。目前，消息仍然可以被发送到原来的主题。消息仍然可以通过slaves被消费。
+
+Some slave crash
+As long as there is another working slave, there will be no impact on sending messages. There will also be no impact on consuming messages except when the consumer group is set to consume from this slave preferably. By default, comsumer group consumes from master.
+
+部分salve崩溃
+只要还有另外一个正在运作的slave，就不会对发送消息有任何影响。消费消息也不会受到影响，除非消费者群组设置了优先消费该slave的消息。默认情况下，消费者群组优先消费来自master的消息。
+
+All slaves crash
+There will be no impact on sending messages to master, but, if the master is SYNC_MASTER, producer will get a SLAVE_NOT_AVAILABLE indicating that the message is not sent to any slaves. There will also be no impact on consuming messages except that if the consumer group is set to consume from slave preferably. By default, comsumer group consumes from master.
+
+所有slaves崩溃
+发送消息到master不会有任何影响，但是，如果master设置了SYNC_MASTER，那么生产者将会受到一个SLAVE_NOT_AVAILABLE的提醒，提醒说该消息未能发送到任意一个slaves。消费消息也不会受到影响，除非消费者群组设置了优先消费该slave的消息。默认情况下，消费者群组优先消费来自master的消息。
+
+4. Producer complains “No Topic Route Info”, how to diagnose?
+This happens when you are trying to send messages to a topic whose routing info is not available to the producer.
+
+4. 生产者报告“没有主题路由信息”，如何判断哪里出了问题？
+这种问题会发生在当你尝试发送消息到一个主题，而这个主题的路由信息对该生产者不可用。
+
+  1. Make sure that the producer can connect to a name server and is capable of fetching routing meta info from it.
+  2. Make sure that name servers do contain routing meta info of the topic. You may query the routing meta info from name server through topicRoute using admin tools or web console.
+  3. Make sure that your brokers are sending heartbeats to the same list of name servers your producer is connecting to.
+  4. Make sure that the topic’s permssion is 6(rw-), or at least 2(-w-).
+
+  1. 确定生产者可以连接到name server，而且能够从该处获取路由元信息。
+  2. 确定name servers的确保存了主题的路由元信息。通过使用admin工具或者web控制台，你可以根据topicRoute查询name server的路由元信息。
+  3. 确定你的brokers正在发送heartbeats给同一list上的name servers，而且你的生产者正在跟它们连接着。
+  4. 确定该主题的权限是6(rw-)，或者至少是2(-w-).
+
+If you can’t find this topic, create it on a broker via admin tools command updateTopic or web console.
+
+如果你找不到这个主题，那就通过admin工具命令updateTopic或者web控制台在一个boker上创建它。
