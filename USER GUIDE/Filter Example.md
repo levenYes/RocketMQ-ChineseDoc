@@ -64,7 +64,6 @@ public void subscribe(final String topic, final MessageSelector messageSelector)
 ```
 
 ### 使用限制
-Only push consumer could select messages by SQL92. The interface is:
 只有push类型的消费者可以通过SQL92标准的语句来筛选消息。接口如下：
 ```
 public void subscribe(final String topic, final MessageSelector messageSelector)
