@@ -8,7 +8,7 @@ categories: 文档翻译
 OpenMessaging, which includes the establishment of industry guidelines and messaging, streaming specifications to provide a common framework for finance, e-commerce, IoT and big-data area. The design principles are the cloud-oriented, simplicity, flexibility, and language independent in distributed heterogeneous environments. Conformance to these specifications will make it possible to develop a heterogeneous messaging applications across all major platforms and operating systems.
 
 ## OpenMessaging兼容示例
-OpenMessaging努力建立行业准则和消息分发、流计算领域标准，为金融、电子商务、物联网和大数据领域提供一个通用框架。设计原则包括，面向云、简单易用、灵活度高、独立于编程语言，以及能在分布式异构环境中使用。这些标准的一致性将会使得开发一款跨所有主要平台和操作系统的异构消息分发应用成为可能。
+OpenMessaging力图建立行业准则和消息分发、流计算领域标准，为金融、电子商务、物联网和大数据领域提供通用框架。设计原则包括，面向云、简单易用、灵活度高、独立于编程语言，以及能在分布式异构环境中使用。这些标准的一致性将会使得开发一款跨所有主流平台和操作系统的异构消息分发应用成为可能。
 
 RocketMQ provides a partial implementation of OpenMessaging 0.1.0-alpha, the following examples demonstrate how to access RocketMQ based on OpenMessaging.
 

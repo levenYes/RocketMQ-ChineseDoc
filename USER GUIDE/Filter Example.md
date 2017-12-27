@@ -20,7 +20,7 @@ consumer.subscribe("TOPIC", "TAGA || TAGB || TAGC");
 
 The consumer will recieve messages that contains TAGA or TAGB or TAGC. But the limitation is that one message only can have one tag, and this may not work for sophisticated scenarios. In this case, you can use SQL expression to filter out messages.
 
-该消费者会接收含有TAGA、TAGB或TAGC标签的消息。但是，因为有一条消息只能打一个标签的限制，在复杂的场景下可能会失效。在这种情况下，你应该用SQL表达式来过滤消息。
+该消费者会接收含有TAGA、TAGB或TAGC标签的消息。但是，因为有一条消息只能打一个标签的限制，在复杂的场景下可能会失效。在这种情况下，你可以用SQL表达式来过滤消息。
 
 ### Principle
 SQL feature could do some calculation through the properties you put in when sending messages. Under the grammars defined by RocketMQ, you can implement some interesting logic. Here is an example:

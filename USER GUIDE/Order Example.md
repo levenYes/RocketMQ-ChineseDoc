@@ -11,6 +11,7 @@ RocketMQ provides ordered messages using FIFO order.
 RocketMQ提供使用先进先出算法的顺序消息实现。
 
 The following example demonstrates sending/recieving of globally and partitionally ordered message.
+
 以下示例展示了如何发送/接收全局顺序消息和分区顺序消息。
 
 ### Send message sample code

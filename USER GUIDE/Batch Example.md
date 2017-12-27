@@ -9,7 +9,7 @@ Sending messages in batch improves performance of delivering small messages.
 
 ## 批量消息示例
 ### 为什么要采用批量消息？
-批量地发送消息可以提升发送小内存消息时的性能。
+批量发送消息可以提升投递小内存消息时的性能。
 
 ### Usage constraints
 Messages of the same batch should have: same topic, same waitStoreMsgOK and no schedule support.
@@ -17,9 +17,9 @@ Messages of the same batch should have: same topic, same waitStoreMsgOK and no s
 Besides, the total size of the messages in one batch should be no more than 1MiB.
 
 ### 使用限制
-同一批的消息必须满足以下条件：相同的主题、相同的waitStoreMsgOK变量设置，而且不支持延时发送
+同一批消息必须满足以下条件：相同的主题、相同的waitStoreMsgOK变量设置，而且都不支持延时发送
 
-另外，一个批量消息最好不要大于1MB。
+另外，一个批量消息的大小最好不要大于1MiB。
 
 ### How to use batch
 If you just send messages of no more than 1MiB at a time, it is easy to use batch:
@@ -37,7 +37,7 @@ try {
 }
 ```
 
-### 如何使用批消息
+### 如何使用批量消息
 如果你一次发送的消息总大小不超过1MB，使用批量消息就很简单
 ```
 String topic = "BatchTest";
@@ -114,7 +114,7 @@ while (splitter.hasNext()) {
 ```
 
 ### 切分后用List保存
-只有在你发送大内存批量消息而且不确定是否达到大小限制（1MB）的时候，才会变得复杂。
+只有在你发送大内存批量消息而且不确定是否达到大小限制（1MiB）的时候，才会变得复杂。
 
 这时候，你应该把它们切分，然后用List保存
 ```

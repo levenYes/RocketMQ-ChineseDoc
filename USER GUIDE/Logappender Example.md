@@ -7,8 +7,7 @@ categories: 文档翻译
 RocketMQ logappender provides log4j appender, log4j2 appender and logback appender for bussiness to use, below are config examples.
 
 ## 日志插件管理示例
-RocketMQ logappender provides log4j appender, log4j2 appender and logback appender for bussiness to use, below are config examples.
-RocketMQ日志插件管理提供了log4j插件、log4j2插件和logback插件在业务中使用，以下是如何设置的示例例子，
+RocketMQ日志插件管理提供了log4j插件、log4j2插件和logback插件，都可以在业务中使用，以下是如何设置的示例，
 
 ### log4j
 When using log4j properties config file,config as below.
@@ -23,7 +22,6 @@ log4j.appender.mq.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-4r [%t] (%F
 ```
 
 ### log4j
-When using log4j properties config file,config as below.
 log4j配置文件如下.
 ```
 log4j.appender.mq=org.apache.rocketmq.logappender.log4j.RocketmqLog4jAppender
@@ -73,8 +71,8 @@ When using log4j xml config file,config it as this and also add a async appender
 </appender>
 ```
 
-log4j2
-采用log4j2，配置如下。如果你希望隐藏，就配置一个异步插件作为引用。【译者注：有问题】
+### log4j2
+When using log4j2,config as this.If you want noneblock,just config an asyncAppender for ref.
 ```
 <RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
      topic="yourLogTopic" tag="yourTag">
@@ -82,7 +80,17 @@ log4j2
 </RocketMQ>
 ```
 
-logback
+
+### log4j2
+log4j2配置如下。如果你希望隐藏，就配置一个异步插件作为引用。【译者注：有问题】
+```
+<RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
+     topic="yourLogTopic" tag="yourTag">
+    <PatternLayout pattern="%d [%p] hahahah %c %m%n"/>
+</RocketMQ>
+```
+
+### logback
 When using logback,an asyncAppender also needed.
 ```
 <appender name="mqAppender1" class="org.apache.rocketmq.logappender.logback.RocketmqLogbackAppender">
@@ -104,7 +112,7 @@ When using logback,an asyncAppender also needed.
 </appender>
 ```
 
-logback
+### logback
 使用logback，异步插件也是必需的。  
 ```
 <appender name="mqAppender1" class="org.apache.rocketmq.logappender.logback.RocketmqLogbackAppender">

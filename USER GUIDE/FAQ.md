@@ -64,21 +64,21 @@ RocketMQ确保所有的消息至少送达一次。在绝大多数情况下，消
   1. Start up a new broker and register it to the same list of name servers.
   2. By default, only internal system topics and consumer groups are created automatically. If you would like to have your business topic and consumer groups on the new node, please replicate them from the existing broker. Admin tool and command lines are provided to handle this.
 
-5. 如何添加y一个新boker？
+5. 如何添加一个新boker？
   1. 启动一个新的boker，然后在相应的name servers所在的list上注册。
-  2. 默认情况下，只有内部系统主题和消费者群组会自动被创建。如果你想在新节点上使用你自己的业务主题和消费者群组，请从已有的broker上复制它们。RocketMQ提供了Admin管理工具和命令行消息来满足这些需求。
+  2. 默认情况下，只有内部系统主题和消费者群组会自动被创建。如果你想在新节点上使用你自己的业务主题和消费者群组，请从已有的broker上复制它们。RocketMQ提供了Admin管理工具和命令行来满足这些需求。
 
 ## Configuration related
 The following answers are all default values and can be modified by configuration.
 
 ## 配置相关问题
-以下答案都是默认值，可以通过修改配置文件进行更改。
+以下回答都是基于默认值不变的情况，默认值可以通过修改配置文件进行更改。
 
 1. How long are the messages saved on the server?
 Stored messages are will be saved for up to 3 days, and messages that are not consumed for more than 3 days will be deleted.
 
 1. 消息会在服务器上保存多久？
-存储的消息会最多保存3天，如果3天内都没有被消费则会被删除。
+存储的消息会最多保存3天，如果3天之后还没有被消费则会被删除。
 
 2. What is the size limit for message Body?
 Generally 256KB.
@@ -106,7 +106,7 @@ Reason：Using the same Producer /Consumer Group to launch multiple instances of
 Solution: Make sure that a JVM corresponding to one Producer /Consumer Group starts only with one Producer/Consumer instance.
 
 ## 错误
-1. 如果你启动一个生产者服务或消费者服务时失败了，错误消息是生产者群组重复或消费者重复？
+1. 如果你启动一个生产者服务或消费者服务时失败了，错误提示是生产者群组重复或消费者群组重复，要如何处理？
 原因：使用相同的生产者、消费者群组在同一个JVM初始化多个生产者/消费者示例可能会导致客户端启动失败。
 解决方法：确保一个JVM对应一个生产者/消费者群组只启动一个生产者/消费者实例。
 
@@ -114,7 +114,7 @@ Solution: Make sure that a JVM corresponding to one Producer /Consumer Group sta
 Reason: Fastjson version is too low to allow the broadcast consumer to load local offsets.json, causing the consumer boot failure. Damaged fastjson file can also cause the same problem.
 Solution: Fastjson version has to be upgraded to rocketmq client dependent version to ensure that the local offsets.json can be loaded. By default offsets.json file is in /home/{user}/.rocketmq_offsets. Or check the integrity of fastjson.
 
-2. 如果在广播模式，消费者在开始加载JSON文件时失败，要怎么办？
+2. 如果在广播模式，消费者在开始加载JSON文件时失败，要如何处理？
 原因：Fastjson的版本太低，以至于无法允许广播消费者加载offsets.json文件，导致该消费者启动失败。损坏的fastjson文件也会导致同样的问题。
 解决方法：Fastjson的版本要升级到rocketmq客户端依赖版本，以确保本地offsets.json文件可以被正常加载。默认条件下offsets.json文件存放位置是/home/{user}/.rocketmq_offsets。或者检查一下fastjson是否完整。
 
@@ -136,13 +136,13 @@ All slaves crash
 There will be no impact on sending messages to master, but, if the master is SYNC_MASTER, producer will get a SLAVE_NOT_AVAILABLE indicating that the message is not sent to any slaves. There will also be no impact on consuming messages except that if the consumer group is set to consume from slave preferably. By default, comsumer group consumes from master.
 
 所有slaves崩溃
-发送消息到master不会有任何影响，但是，如果master设置了SYNC_MASTER，那么生产者将会受到一个SLAVE_NOT_AVAILABLE的提醒，提醒说该消息未能发送到任意一个slaves。消费消息也不会受到影响，除非消费者群组设置了优先消费该slave的消息。默认情况下，消费者群组优先消费来自master的消息。
+发送消息到master不会有任何影响，但是，如果master设置了SYNC_MASTER，那么生产者将会收到一个SLAVE_NOT_AVAILABLE的提醒，提醒说该消息未能发送到任意一个slaves。消费消息也不会受到影响，除非消费者群组设置了优先消费该slave的消息。默认情况下，消费者群组优先消费来自master的消息。
 
 4. Producer complains “No Topic Route Info”, how to diagnose?
 This happens when you are trying to send messages to a topic whose routing info is not available to the producer.
 
 4. 生产者报告“没有主题路由信息”，如何判断哪里出了问题？
-这种问题会发生在当你尝试发送消息到一个主题，而这个主题的路由信息对该生产者不可用。
+这种问题会发生在当你尝试发送消息到一个主题而这个主题的路由信息对该生产者不可用的时候。
 
   1. Make sure that the producer can connect to a name server and is capable of fetching routing meta info from it.
   2. Make sure that name servers do contain routing meta info of the topic. You may query the routing meta info from name server through topicRoute using admin tools or web console.

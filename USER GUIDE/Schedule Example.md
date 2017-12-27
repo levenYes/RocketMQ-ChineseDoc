@@ -141,5 +141,4 @@ import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 You should see messages are consumed about 10 seconds later than their storing time.
 
 3. 验证
-You should see messages are consumed about 10 seconds later than their storing time.
 你应该会在消息被存储之后10秒钟看到它们被消费。
