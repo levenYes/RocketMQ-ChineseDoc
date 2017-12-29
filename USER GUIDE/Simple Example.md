@@ -104,7 +104,6 @@ public class AsyncProducer {
 ```
 
 ### 可靠异步发送
-Application: asynchronous transmission is generally used in response time sensitive business scenarios.
 应用：异步发送通常被用于对响应时间敏感的业务场景
 ```
 public class AsyncProducer {
@@ -167,7 +166,6 @@ public class OnewayProducer {
 ```
 
 ### 单向发送
-Application: One-way transmission is used for cases requiring moderate reliability, such as log collection.
 应用：单向发送用于要求一定可靠性的场景，例如日志收集。
 ```
 public class OnewayProducer {
